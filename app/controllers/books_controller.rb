@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
   def index
-    @les_livres = Book.all
+    @books = Book.all
+    @categories= Category.all
   end
 
   def create
-    Book.create title: params[:title]
+    Book.create title: params[:title], category_id: params[:category_id]
     redirect_to '/books'
   end
 
